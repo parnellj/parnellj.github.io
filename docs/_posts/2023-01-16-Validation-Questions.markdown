@@ -57,3 +57,17 @@ From these premises we can derive an improved routing strategy. Specifically, th
 4. Execute the actions in the route sequence until the game state changes such that new NPCs become accessible, then go to step 2
 
 The route generated in this way should be complete but may be highly inefficient. E.g., this route will prescribe filling one's inventory each time an NPC will give a party member an item, when it may be the case that several of these interactions could be grouped later in the game. The sequence of actions is also not dependent on distance or travel time (though one may apply some basic optimization on this front when developing the route). I hold with Donald Knuth that "premature optimization is the root of all evil" and will consider completion of the route to be my first goal.
+
+PS -- the route file should include these fields:
+
+- Step Number
+- Required Flag
+- Required Party State
+- Required Inventory State
+- Action
+- Location
+- NPC ID
+- NPC Label
+- Effect on Game State
+
+This should be sufficient to describe a given action unambiguously, while the inclusion of flags and IDs should support more efficient and programmatic methods of route development and optimization in the future.
