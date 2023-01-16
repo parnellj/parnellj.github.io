@@ -38,22 +38,22 @@ From these premises we can derive an improved routing strategy. Specifically, th
 1. Begin a new game
 2. Based on the current game state, compile a table of accessible NPCs and ALL possible dialog for each
 3. For each NPC not yet documented, add one or more actions to the route sequence depending on conditional and branching dialog. Actions may include
-	a. Travel to location
-	b. Interact with NPC
-	c. Choose a specific dialog option
-	d. Alter party state
-		i. Allow one or more characters to die
-		ii. Revive one or more characters at the hospital
-		iii. Inflict a status ailment on one or more characters
-	e. Alter inventory composition
-		i. Fill inventory to capacity
-		ii. Partially empty inventory
-		iii. Completely empty inventory
-		iv. Add or remove key items from inventory
-	f. Advance the plot (set/unset certain flags through gameplay)
-	g. Handle exclusive branches
-		i. Save game, reset, and copy save
-		ii. Reset and load copied save
+	1. Travel to location
+	2. Interact with NPC
+	3. Choose a specific dialog option
+	4. Alter party state
+		1. Allow one or more characters to die
+		2. Revive one or more characters at the hospital
+		3. Inflict a status ailment on one or more characters
+	5. Alter inventory composition
+		1. Fill inventory to capacity
+		2. Partially empty inventory
+		3. Completely empty inventory
+		4. Add or remove key items from inventory
+	6. Advance the plot (set/unset certain flags through gameplay)
+	7. Handle exclusive branches
+		1. Save game, reset, and copy save
+		2. Reset and load copied save
 4. Execute the actions in the route sequence until the game state changes such that new NPCs become accessible, then go to step 2
 
 The route generated in this way should be complete but may be highly inefficient. E.g., this route will prescribe filling one's inventory each time an NPC will give a party member an item, when it may be the case that several of these interactions could be grouped later in the game. The sequence of actions is also not dependent on distance or travel time (though one may apply some basic optimization on this front when developing the route). I hold with Donald Knuth that "premature optimization is the root of all evil" and will consider completion of the route to be my first goal.
